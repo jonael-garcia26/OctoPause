@@ -1,2 +1,33 @@
 # Godot 4+ specific ignores
 .godot/
+
+# Archivos de sistema (macOS)
+.DS_Store
+
+# Archivos de sistema (Windows)
+Thumbs.db
+desktop.ini
+
+# Archivos de exportación
+export_presets.cfg
+
+# Carpetas y archivos temporales de Godot
+.import/
+.cache/
+mono/
+
+# Archivos de configuración personal
+*.godot
+*.cfg
+*.flags
+
+# Archivos de compilación (si usas GDScript)
+*.gd-generated.*
+
+# Archivos específicos de IDEs (como VSCode)
+.vscode/
+.idea/
+
+# Archivos de compilación C#
+bin/
+obj/
