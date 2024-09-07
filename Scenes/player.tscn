@@ -1,4 +1,4 @@
-[gd_scene load_steps=4 format=3 uid="uid://b20v1my2wpnvs"]
+[gd_scene load_steps=4 format=3 uid="uid://c2awl4pj3dnt6"]
 
 [ext_resource type="Texture2D" uid="uid://ciav10522sh7w" path="res://Assets/Sprites/Pulpy.png" id="1_os784"]
 [ext_resource type="Script" path="res://Scripts/player.gd" id="1_racub"]

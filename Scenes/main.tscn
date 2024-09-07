@@ -1,10 +1,32 @@
-[gd_scene load_steps=2 format=3 uid="uid://bg5lb4oalerc5"]
+[gd_scene load_steps=5 format=3 uid="uid://c651xkkwuymva"]
 
-[ext_resource type="PackedScene" uid="uid://b20v1my2wpnvs" path="res://Scenes/player.tscn" id="1_w5njc"]
+[ext_resource type="PackedScene" uid="uid://c2awl4pj3dnt6" path="res://Scenes/player.tscn" id="1_kbfvx"]
+[ext_resource type="Script" path="res://Scripts/main.gd" id="1_st17b"]
+[ext_resource type="PackedScene" uid="uid://d2wsb3or2oqp2" path="res://Scenes/Swordy.tscn" id="3_0fcww"]
+
+[sub_resource type="Curve2D" id="Curve2D_tvcvj"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, -3, -2, 0, 0, 0, 0, 649, -2, 0, 0, 0, 0, 649, 646, 0, 0, 0, 0, -1, 645, 0, 0, 0, 0, -3, -2)
+}
+point_count = 5
 
 [node name="Main" type="Node2D"]
+script = ExtResource("1_st17b")
 
-[node name="Player" parent="." instance=ExtResource("1_w5njc")]
-position = Vector2(324, 324)
+[node name="EnemyTimer" type="Timer" parent="."]
+wait_time = 0.5
 
-[connection signal="body_entered" from="Player" to="Player" method="_on_body_entered"]
+[node name="Player" parent="." instance=ExtResource("1_kbfvx")]
+position = Vector2(330, 320)
+
+[node name="Swordy" parent="." instance=ExtResource("3_0fcww")]
+position = Vector2(285, -2)
+rotation = -3.14159
+
+[node name="Path" type="Path2D" parent="."]
+curve = SubResource("Curve2D_tvcvj")
+
+[node name="Spawn enemies" type="PathFollow2D" parent="Path"]
+position = Vector2(-3, -2)
+
+[connection signal="timeout" from="EnemyTimer" to="." method="_on_enemy_timer_timeout"]

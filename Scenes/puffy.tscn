@@ -7,11 +7,16 @@ radius = 23.0
 
 [node name="Enemy" type="Node2D"]
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
+[node name="RigidBody2D" type="RigidBody2D" parent="."]
+collision_mask = 0
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="RigidBody2D"]
+position = Vector2(1.43051e-06, -0.999999)
+scale = Vector2(2.3, 2.6)
+
+[node name="Sprite2D" type="Sprite2D" parent="RigidBody2D"]
 texture_filter = 1
 texture = ExtResource("1_kaflr")
 
-[node name="Area2D" type="Area2D" parent="."]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RigidBody2D"]
 shape = SubResource("CircleShape2D_vxgl6")

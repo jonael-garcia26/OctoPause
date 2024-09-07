@@ -1,0 +1,23 @@
+[gd_scene load_steps=3 format=3 uid="uid://ce3fuy55bbe0l"]
+
+[ext_resource type="Texture2D" uid="uid://cmghkwgy8jely" path="res://Assets/Sprites/Killy Whaley.png" id="1_t4bqg"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_t5wpk"]
+radius = 16.0
+height = 84.0
+
+[node name="Enemy" type="Node2D"]
+
+[node name="RigidBody2D" type="RigidBody2D" parent="."]
+collision_mask = 0
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="RigidBody2D"]
+position = Vector2(0.5, -1.90735e-06)
+scale = Vector2(1.65, 4)
+
+[node name="Sprite2D" type="Sprite2D" parent="RigidBody2D"]
+texture_filter = 1
+texture = ExtResource("1_t4bqg")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RigidBody2D"]
+shape = SubResource("CapsuleShape2D_t5wpk")
