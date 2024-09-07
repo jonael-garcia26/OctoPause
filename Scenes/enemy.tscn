@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=3 uid="uid://ca20qyc1r7ovv"]
+
+[ext_resource type="Texture2D" uid="uid://cuqcjecam5ljo" path="res://Assets/Sprites/Puffy.png" id="1_kaflr"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_vxgl6"]
+radius = 23.0
+
+[node name="Enemy" type="Node2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture_filter = 1
+texture = ExtResource("1_kaflr")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("CircleShape2D_vxgl6")
