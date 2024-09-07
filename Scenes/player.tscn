@@ -1,0 +1,16 @@
+[gd_scene load_steps=4 format=3 uid="uid://b20v1my2wpnvs"]
+
+[ext_resource type="Texture2D" uid="uid://ciav10522sh7w" path="res://Assets/Sprites/Pulpy.png" id="1_os784"]
+[ext_resource type="Script" path="res://Scripts/player.gd" id="1_racub"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_0dtc3"]
+radius = 22.0907
+
+[node name="Player" type="Area2D"]
+script = ExtResource("1_racub")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_os784")
+
+[node name="Hitbox" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_0dtc3")
