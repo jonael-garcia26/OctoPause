@@ -8,18 +8,17 @@ radius = 16.0
 height = 66.0
 
 [node name="Killy" type="RigidBody2D"]
+collision_mask = 0
+gravity_scale = 0.0
 script = ExtResource("1_1de1f")
-
-[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
-position = Vector2(0.5, -1.90735e-06)
-scale = Vector2(1.65, 4)
+velocity = 75
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture_filter = 1
+rotation = 1.5708
 texture = ExtResource("1_t4bqg")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, -7)
+position = Vector2(7, 0)
+rotation = 1.5708
 shape = SubResource("CapsuleShape2D_t5wpk")
-
-[connection signal="screen_exited" from="VisibleOnScreenNotifier2D" to="." method="_on_visible_on_screen_notifier_2d_screen_exited"]

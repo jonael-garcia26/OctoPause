@@ -1,7 +1,7 @@
 extends Node
 
-@export var pufferfish_scene: PackedScene
-@export var swordfish_scene: PackedScene
+@export var mob_scenes: Array[PackedScene]
+
 
 func _ready() -> void:
 	pass
@@ -21,19 +21,22 @@ func _on_enemy_timer_timeout():
 	var mob_spawn_location = $"Path/Spawn enemies"
 	mob_spawn_location.progress_ratio = randf()
 
-	# Set the mob's direction perpendicular to the path direction.
-	var direction = mob_spawn_location.rotation + PI / 2
-
 	# Set the mob's position to a random location.
 	mob.position = mob_spawn_location.position
+	
+	#Calculate the center of the screen
+	var screen_center = get_viewport().get_visible_rect().size / 2
 
-	# Add some randomness to the direction.
-	direction += randf_range(-PI / 4, PI / 4)
-	mob.rotation = direction
+	#Calculate direction towards the center of the screen
+	var direction_vector = (screen_center - mob.position).normalized()
+	
+	#Set the mob's rotation to face the center of the screen
+	mob.rotation = direction_vector.angle()
 
 	# Choose the velocity for the mob.
 	var velocity = Vector2(mob.velocity, 0.0)
-	mob.linear_velocity = velocity.rotated(direction)
+	mob.linear_velocity = direction_vector * velocity.length()
+	
 	# Spawn the mob by adding it to the Main scene.
 	add_child(mob)
 
@@ -42,7 +45,4 @@ func _on_start_timer_timeout() -> void:
 
 # Function to randomly choose between the pufferfish and swordfish
 func choose_random_enemy() -> PackedScene:
-	if randf() < 0.5:
-		return pufferfish_scene
-	else:
-		return swordfish_scene
+	return mob_scenes[randi() % mob_scenes.size()]
