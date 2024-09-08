@@ -1,12 +1,14 @@
-[gd_scene load_steps=3 format=3 uid="uid://ce3fuy55bbe0l"]
+[gd_scene load_steps=4 format=3 uid="uid://ce3fuy55bbe0l"]
 
+[ext_resource type="Script" path="res://Scripts/killy.gd" id="1_1de1f"]
 [ext_resource type="Texture2D" uid="uid://cmghkwgy8jely" path="res://Assets/Sprites/Killy Whaley.png" id="1_t4bqg"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_t5wpk"]
 radius = 16.0
-height = 84.0
+height = 66.0
 
 [node name="Enemy" type="Node2D"]
+script = ExtResource("1_1de1f")
 
 [node name="RigidBody2D" type="RigidBody2D" parent="."]
 collision_mask = 0
@@ -20,4 +22,5 @@ texture_filter = 1
 texture = ExtResource("1_t4bqg")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="RigidBody2D"]
+position = Vector2(0, -7)
 shape = SubResource("CapsuleShape2D_t5wpk")

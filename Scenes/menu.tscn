@@ -1,6 +1,5 @@
-[gd_scene load_steps=6 format=3 uid="uid://ng2v52wteqgw"]
+[gd_scene load_steps=5 format=3 uid="uid://ng2v52wteqgw"]
 
-[ext_resource type="Script" path="res://Scripts/start.gd" id="1_80ar1"]
 [ext_resource type="Shader" path="res://Assets/Shaders/bgScroll.gdshader" id="1_sfxr1"]
 [ext_resource type="Script" path="res://Scripts/quit.gd" id="1_yorfc"]
 [ext_resource type="Texture2D" uid="uid://dt2sklf6eyu73" path="res://Assets/Sprites/Start.png" id="2_2xws7"]

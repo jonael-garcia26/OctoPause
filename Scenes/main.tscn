@@ -2,7 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://c2awl4pj3dnt6" path="res://Scenes/player.tscn" id="1_kbfvx"]
 [ext_resource type="Script" path="res://Scripts/main.gd" id="1_st17b"]
-[ext_resource type="PackedScene" uid="uid://d2wsb3or2oqp2" path="res://Scenes/Swordy.tscn" id="3_0fcww"]
+[ext_resource type="Texture2D" uid="uid://db1rv5jahoabt" path="res://Assets/Sprites/Background.png" id="2_ox5rd"]
 
 [sub_resource type="Curve2D" id="Curve2D_tvcvj"]
 _data = {
@@ -13,15 +13,15 @@ point_count = 5
 [node name="Main" type="Node2D"]
 script = ExtResource("1_st17b")
 
+[node name="Background" type="Sprite2D" parent="."]
+texture = ExtResource("2_ox5rd")
+centered = false
+
 [node name="EnemyTimer" type="Timer" parent="."]
 wait_time = 0.5
 
 [node name="Player" parent="." instance=ExtResource("1_kbfvx")]
-position = Vector2(330, 320)
-
-[node name="Swordy" parent="." instance=ExtResource("3_0fcww")]
-position = Vector2(285, -2)
-rotation = -3.14159
+position = Vector2(321, 320)
 
 [node name="Path" type="Path2D" parent="."]
 curve = SubResource("Curve2D_tvcvj")
