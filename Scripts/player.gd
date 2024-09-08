@@ -11,7 +11,9 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	pass
+	var closestEnemy = get_closest_enemy()
+	if closestEnemy:
+		look_at(closestEnemy.position)
 
 
 func _on_body_entered(body: Node2D) -> void:
@@ -23,3 +25,18 @@ func start(pos):
 	position = pos
 	show()
 	$Hitbox.disabled = false
+
+
+func get_closest_enemy():
+	var closest_enemy: EnemyClass = null
+	var closest_dist = INF
+	var enemies = get_parent().get_tree().get_nodes_in_group("enemies")
+	
+	if(!enemies.is_empty()):
+		for enemy in enemies:
+			var dist = global_position.distance_to(enemy.global_position)
+			if dist < closest_dist:
+				closest_dist = dist
+				closest_enemy = enemy
+		
+	return closest_enemy
