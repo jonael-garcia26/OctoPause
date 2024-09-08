@@ -1,9 +1,10 @@
-[gd_scene load_steps=6 format=3 uid="uid://c651xkkwuymva"]
+[gd_scene load_steps=7 format=3 uid="uid://c651xkkwuymva"]
 
 [ext_resource type="Script" path="res://Scripts/main.gd" id="1_h3ynb"]
-[ext_resource type="PackedScene" uid="uid://ca20qyc1r7ovv" path="res://Scenes/Puffy.tscn" id="2_nxctq"]
+[ext_resource type="PackedScene" uid="uid://ca20qyc1r7ovv" path="res://Scenes/puffy.tscn" id="2_qteu8"]
+[ext_resource type="PackedScene" uid="uid://d2wsb3or2oqp2" path="res://Scenes/Swordy.tscn" id="3_i4u0a"]
 [ext_resource type="Texture2D" uid="uid://db1rv5jahoabt" path="res://Assets/Sprites/Background.png" id="3_j76o2"]
-[ext_resource type="PackedScene" uid="uid://c2awl4pj3dnt6" path="res://Scenes/Player.tscn" id="4_46g1p"]
+[ext_resource type="PackedScene" uid="uid://c2awl4pj3dnt6" path="res://Scenes/player.tscn" id="4_46g1p"]
 
 [sub_resource type="Curve2D" id="Curve2D_tvcvj"]
 _data = {
@@ -13,7 +14,8 @@ point_count = 5
 
 [node name="Main" type="Node2D"]
 script = ExtResource("1_h3ynb")
-mob_scene = ExtResource("2_nxctq")
+pufferfish_scene = ExtResource("2_qteu8")
+swordfish_scene = ExtResource("3_i4u0a")
 
 [node name="Background" type="Sprite2D" parent="."]
 texture = ExtResource("3_j76o2")
