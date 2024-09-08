@@ -10,8 +10,8 @@ config_version=5
 
 [application]
 
-config/name="GameJamFall2024"
-run/main_scene="res://Scenes/menu.tscn"
+config/name="OctoPause"
+run/main_scene="res://Scenes/Menu.tscn"
 config/features=PackedStringArray("4.3", "GL Compatibility")
 
 [display]

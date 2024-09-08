@@ -1,4 +1,5 @@
-extends Node2D
+extends RigidBody2D
+
 class_name EnemyClass
 
 @export var health = 100

@@ -7,11 +7,12 @@
 radius = 16.0
 height = 66.0
 
-[node name="Enemy" type="Node2D"]
+[node name="Killy" type="Node2D"]
 script = ExtResource("1_1de1f")
 
 [node name="RigidBody2D" type="RigidBody2D" parent="."]
 collision_mask = 0
+gravity_scale = 0.0
 
 [node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="RigidBody2D"]
 position = Vector2(0.5, -1.90735e-06)
@@ -24,3 +25,5 @@ texture = ExtResource("1_t4bqg")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="RigidBody2D"]
 position = Vector2(0, -7)
 shape = SubResource("CapsuleShape2D_t5wpk")
+
+[connection signal="screen_exited" from="RigidBody2D/VisibleOnScreenNotifier2D" to="." method="_on_visible_on_screen_notifier_2d_screen_exited"]

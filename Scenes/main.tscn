@@ -1,32 +1,45 @@
-[gd_scene load_steps=5 format=3 uid="uid://c651xkkwuymva"]
+[gd_scene load_steps=6 format=3 uid="uid://c651xkkwuymva"]
 
-[ext_resource type="PackedScene" uid="uid://c2awl4pj3dnt6" path="res://Scenes/player.tscn" id="1_kbfvx"]
-[ext_resource type="Script" path="res://Scripts/main.gd" id="1_st17b"]
-[ext_resource type="Texture2D" uid="uid://db1rv5jahoabt" path="res://Assets/Sprites/Background.png" id="2_ox5rd"]
+[ext_resource type="Script" path="res://Scripts/main.gd" id="1_h3ynb"]
+[ext_resource type="PackedScene" uid="uid://ca20qyc1r7ovv" path="res://Scenes/Puffy.tscn" id="2_nxctq"]
+[ext_resource type="Texture2D" uid="uid://db1rv5jahoabt" path="res://Assets/Sprites/Background.png" id="3_j76o2"]
+[ext_resource type="PackedScene" uid="uid://c2awl4pj3dnt6" path="res://Scenes/Player.tscn" id="4_46g1p"]
 
 [sub_resource type="Curve2D" id="Curve2D_tvcvj"]
 _data = {
-"points": PackedVector2Array(0, 0, 0, 0, -3, -2, 0, 0, 0, 0, 649, -2, 0, 0, 0, 0, 649, 646, 0, 0, 0, 0, -1, 645, 0, 0, 0, 0, -3, -2)
+"points": PackedVector2Array(0, 0, 0, 0, 3, 0, 0, 0, 0, 0, 649, 1, 0, 0, 0, 0, 648, 647, 0, 0, 0, 0, 2, 644, 0, 0, 0, 0, 3, 0)
 }
 point_count = 5
 
 [node name="Main" type="Node2D"]
-script = ExtResource("1_st17b")
+script = ExtResource("1_h3ynb")
+mob_scene = ExtResource("2_nxctq")
 
 [node name="Background" type="Sprite2D" parent="."]
-texture = ExtResource("2_ox5rd")
+texture = ExtResource("3_j76o2")
 centered = false
 
 [node name="EnemyTimer" type="Timer" parent="."]
 wait_time = 0.5
+autostart = true
 
-[node name="Player" parent="." instance=ExtResource("1_kbfvx")]
+[node name="StartTimer" type="Timer" parent="."]
+wait_time = 2.0
+one_shot = true
+
+[node name="Player" parent="." instance=ExtResource("4_46g1p")]
 position = Vector2(321, 320)
+
+[node name="StartPos" type="Marker2D" parent="."]
+position = Vector2(324, 324)
 
 [node name="Path" type="Path2D" parent="."]
 curve = SubResource("Curve2D_tvcvj")
 
 [node name="Spawn enemies" type="PathFollow2D" parent="Path"]
-position = Vector2(-3, -2)
+position = Vector2(3, 0)
+rotation = 0.00154799
 
 [connection signal="timeout" from="EnemyTimer" to="." method="_on_enemy_timer_timeout"]
+[connection signal="timeout" from="StartTimer" to="." method="_on_start_timer_timeout"]
+[connection signal="hit" from="Player" to="." method="_on_player_hit"]
