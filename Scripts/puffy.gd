@@ -1,5 +1,8 @@
 extends EnemyClass
 
+@export var min_speed: float = 100.0  # Adjust this value based on your game
+@export var max_speed: float = 200.0  # Adjust this value based on your game
+
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
