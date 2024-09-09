@@ -9,6 +9,9 @@ func _ready() -> void:
 	NemoContainer.setMaxNemos(player.maxHealth)
 	NemoContainer.updateNemos(player.currHealth)
 	player.hit.connect(NemoContainer.updateNemos)
+	var viewport_size = get_viewport().get_visible_rect().size
+	print("Viewport size: ", viewport_size)
+
 
 func new_game():
 	$Player.start($StartPos.position)
@@ -16,12 +19,16 @@ func new_game():
 
 func _on_enemy_timer_timeout():
 	# Randomly choose between pufferfish and swordfish
-	var mob_scene = choose_random_enemy()
-
+	var index = choose_random_enemy()
+	var mob_scene = mob_scenes[index]
+	
 	# Instantiate the chosen enemy scene
 	var mob = mob_scene.instantiate()
+	if index == 1:
+		mob.add_to_group("Swordies")
 	mob.add_to_group("enemies")
-
+	
+	
 	# Choose a random location on Path2D.
 	var mob_spawn_location = $"Path/Spawn enemies"
 	mob_spawn_location.progress_ratio = randf()
@@ -49,5 +56,5 @@ func _on_start_timer_timeout() -> void:
 	$EnemyTimer.start()
 
 # Function to randomly choose between the pufferfish and swordfish
-func choose_random_enemy() -> PackedScene:
-	return mob_scenes[randi() % mob_scenes.size()]
+func choose_random_enemy() -> int:
+	return randi() % mob_scenes.size()
