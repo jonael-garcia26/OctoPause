@@ -1,8 +1,9 @@
-[gd_scene load_steps=7 format=3 uid="uid://ng2v52wteqgw"]
+[gd_scene load_steps=8 format=3 uid="uid://ng2v52wteqgw"]
 
 [ext_resource type="Shader" path="res://Assets/Shaders/bgScroll.gdshader" id="1_3opii"]
 [ext_resource type="Texture2D" uid="uid://dt2sklf6eyu73" path="res://Assets/Sprites/Start.png" id="2_eoidh"]
 [ext_resource type="FontFile" uid="uid://b641ed2clbrdw" path="res://Assets/Fonts/Monocraft.ttf" id="3_if7dh"]
+[ext_resource type="StyleBox" uid="uid://bsf2b3vmja674" path="res://Assets/Fonts/Style.tres" id="4_x2an7"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_h6wif"]
 shader = ExtResource("1_3opii")
@@ -61,6 +62,7 @@ theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 10
 theme_override_fonts/font = ExtResource("3_if7dh")
 theme_override_font_sizes/font_size = 30
+theme_override_styles/normal = ExtResource("4_x2an7")
 text = "Start"
 script = SubResource("GDScript_jkrfo")
 
@@ -72,6 +74,7 @@ theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 10
 theme_override_fonts/font = ExtResource("3_if7dh")
 theme_override_font_sizes/font_size = 30
+theme_override_styles/normal = ExtResource("4_x2an7")
 text = "Quit"
 script = SubResource("GDScript_1wvsp")
 
@@ -90,6 +93,7 @@ theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 18
 theme_override_fonts/font = ExtResource("3_if7dh")
 theme_override_font_sizes/font_size = 60
+theme_override_styles/normal = ExtResource("4_x2an7")
 text = "OctoPause"
 
 [connection signal="pressed" from="VBoxContainer/Start" to="VBoxContainer/Start" method="_on_pressed"]

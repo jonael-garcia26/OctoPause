@@ -1,9 +1,10 @@
-[gd_scene load_steps=8 format=3 uid="uid://b3mhql1b038dc"]
+[gd_scene load_steps=9 format=3 uid="uid://b3mhql1b038dc"]
 
 [ext_resource type="Shader" path="res://Assets/Shaders/bgScroll.gdshader" id="1_07bwd"]
 [ext_resource type="Script" path="res://Scripts/game_over.gd" id="1_r5qaw"]
 [ext_resource type="Texture2D" uid="uid://dt2sklf6eyu73" path="res://Assets/Sprites/Start.png" id="2_xb5vq"]
 [ext_resource type="FontFile" uid="uid://b641ed2clbrdw" path="res://Assets/Fonts/Monocraft.ttf" id="4_xynan"]
+[ext_resource type="StyleBox" uid="uid://bsf2b3vmja674" path="res://Assets/Fonts/Style.tres" id="5_ya8st"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_h6wif"]
 shader = ExtResource("1_07bwd")
@@ -63,6 +64,7 @@ theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 10
 theme_override_fonts/font = ExtResource("4_xynan")
 theme_override_font_sizes/font_size = 30
+theme_override_styles/normal = ExtResource("5_ya8st")
 text = "S"
 horizontal_alignment = 1
 vertical_alignment = 1
@@ -75,6 +77,7 @@ theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 10
 theme_override_fonts/font = ExtResource("4_xynan")
 theme_override_font_sizes/font_size = 30
+theme_override_styles/normal = ExtResource("5_ya8st")
 text = "Retry"
 script = SubResource("GDScript_jkrfo")
 
@@ -86,6 +89,7 @@ theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 10
 theme_override_fonts/font = ExtResource("4_xynan")
 theme_override_font_sizes/font_size = 30
+theme_override_styles/normal = ExtResource("5_ya8st")
 text = "Quit"
 script = SubResource("GDScript_1wvsp")
 

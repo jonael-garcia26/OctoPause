@@ -11,4 +11,4 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	labelScore.text = "Score: " + '%02d:%02d' % [m,s]
+	labelScore.text = "Time: " + '%02d:%02d' % [m,s]
