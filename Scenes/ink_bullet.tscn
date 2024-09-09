@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://pfcih8bgu88n"]
 
 [ext_resource type="Texture2D" uid="uid://7fm66eaoef6v" path="res://Assets/Sprites/Ink bullet.png" id="1_1bh3e"]
-[ext_resource type="Script" path="res://Scenes/ink_bullet.gd" id="1_v7ymu"]
+[ext_resource type="Script" path="res://Scripts/ink_bullet.gd" id="1_v7ymu"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_871ia"]
 radius = 5.0

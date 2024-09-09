@@ -17,9 +17,11 @@ func new_game():
 	$StartTimer.start()
 
 func _on_enemy_timer_timeout():
-	print(EnemyTimer.wait_time)
+	#print(EnemyTimer.wait_time)
 	if EnemyTimer.wait_time > 0.5:
-		EnemyTimer.wait_time = EnemyTimer.wait_time*0.95
+		EnemyTimer.wait_time = round((EnemyTimer.wait_time*0.95)*100) / 100
+		if EnemyTimer.wait_time <= 0.5:
+			EnemyTimer.wait_time = 0.5
 	# Randomly choose between pufferfish and swordfish
 	var index = choose_random_enemy()
 	var mob_scene = mob_scenes[index]
