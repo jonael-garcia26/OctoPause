@@ -3,7 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://ca20qyc1r7ovv" path="res://Scenes/Puffy.tscn" id="2_qteu8"]
 [ext_resource type="PackedScene" uid="uid://d2wsb3or2oqp2" path="res://Scenes/Swordy.tscn" id="3_i4u0a"]
 [ext_resource type="Texture2D" uid="uid://db1rv5jahoabt" path="res://Assets/Sprites/Background.png" id="3_j76o2"]
-[ext_resource type="PackedScene" uid="uid://c2awl4pj3dnt6" path="res://Scenes/Player.tscn" id="4_46g1p"]
+[ext_resource type="PackedScene" uid="uid://c2awl4pj3dnt6" path="res://Scenes/player.tscn" id="4_46g1p"]
 [ext_resource type="PackedScene" uid="uid://ce3fuy55bbe0l" path="res://Scenes/Killy.tscn" id="4_m0alt"]
 [ext_resource type="PackedScene" uid="uid://666pj4t2irbx" path="res://Scenes/time_stop.tscn" id="7_3g04u"]
 [ext_resource type="PackedScene" uid="uid://d5crpah3s4lv" path="res://gui/nemoContainer.tscn" id="7_l7s0j"]
