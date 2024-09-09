@@ -8,7 +8,7 @@ extends Area2D
 var screen_size
 var inkBullet = preload("res://Scenes/ink_bullet.tscn")
 var shootTimer = 0
-var shootInterval = 0.3
+var shootInterval = 0.5
 
 signal hit
 # Called when the node enters the scene tree for the first time.

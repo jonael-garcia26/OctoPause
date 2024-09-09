@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://y3f2doee3bom"]
+[gd_scene load_steps=7 format=3 uid="uid://ng2v52wteqgw"]
 
 [ext_resource type="Shader" path="res://Assets/Shaders/bgScroll.gdshader" id="1_3opii"]
 [ext_resource type="Texture2D" uid="uid://dt2sklf6eyu73" path="res://Assets/Sprites/Start.png" id="2_eoidh"]
