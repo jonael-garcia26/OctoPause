@@ -1,7 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://ng2v52wteqgw"]
+[gd_scene load_steps=6 format=3 uid="uid://ng2v52wteqgw"]
 
 [ext_resource type="Shader" path="res://Assets/Shaders/bgScroll.gdshader" id="1_xogcd"]
 [ext_resource type="Texture2D" uid="uid://dt2sklf6eyu73" path="res://Assets/Sprites/Start.png" id="2_4ith4"]
+[ext_resource type="FontFile" uid="uid://dux0g5fnqtyn8" path="res://Assets/Fonts/Monocraft.ttf" id="3_d0bge"]
 [ext_resource type="Script" path="res://Scripts/quit.gd" id="3_kufnd"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_h6wif"]
@@ -48,12 +49,14 @@ grow_vertical = 2
 [node name="Start" type="Button" parent="VBoxContainer"]
 layout_mode = 2
 focus_neighbor_top = NodePath("../Quit")
+theme_override_fonts/font = ExtResource("3_d0bge")
 theme_override_font_sizes/font_size = 30
 text = "Start"
 
 [node name="Quit" type="Button" parent="VBoxContainer"]
 layout_mode = 2
 focus_neighbor_bottom = NodePath("../Start")
+theme_override_fonts/font = ExtResource("3_d0bge")
 theme_override_font_sizes/font_size = 30
 text = "Quit"
 script = ExtResource("3_kufnd")
