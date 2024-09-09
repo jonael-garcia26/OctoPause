@@ -1,7 +1,7 @@
 [gd_scene load_steps=9 format=3 uid="uid://c2awl4pj3dnt6"]
 
 [ext_resource type="Texture2D" uid="uid://ciav10522sh7w" path="res://Assets/Sprites/Pulpy.png" id="1_os784"]
-[ext_resource type="Script" path="res://Scripts/player.gd" id="1_racub"]
+[ext_resource type="Script" path="res://Scripts/Player.gd" id="1_racub"]
 [ext_resource type="Shader" path="res://Scripts/Player_damage.gdshader" id="2_wbdch"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_ex6ex"]

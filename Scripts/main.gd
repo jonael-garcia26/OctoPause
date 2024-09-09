@@ -3,6 +3,8 @@ extends Node
 @export var mob_scenes: Array[PackedScene]
 @onready var NemoContainer = $CanvasLayer/NemoContainer
 @onready var player = $Player
+@onready var EnemyTimer = $EnemyTimer
+
 
 
 func _ready() -> void:
@@ -15,6 +17,9 @@ func new_game():
 	$StartTimer.start()
 
 func _on_enemy_timer_timeout():
+	print(EnemyTimer.wait_time)
+	if EnemyTimer.wait_time > 0.5:
+		EnemyTimer.wait_time = EnemyTimer.wait_time*0.95
 	# Randomly choose between pufferfish and swordfish
 	var index = choose_random_enemy()
 	var mob_scene = mob_scenes[index]
@@ -49,7 +54,7 @@ func _on_enemy_timer_timeout():
 	add_child(mob)
 
 func _on_start_timer_timeout() -> void:
-	$EnemyTimer.start()
+	EnemyTimer.start()
 
 # Function to randomly choose between the pufferfish and swordfish
 func choose_random_enemy() -> int:
