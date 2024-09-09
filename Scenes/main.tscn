@@ -9,6 +9,65 @@
 [ext_resource type="PackedScene" uid="uid://666pj4t2irbx" path="res://Scenes/time_stop.tscn" id="7_3g04u"]
 [ext_resource type="PackedScene" uid="uid://d5crpah3s4lv" path="res://gui/nemoContainer.tscn" id="7_l7s0j"]
 
+[sub_resource type="GDScript" id="GDScript_pf7ik"]
+script/source = "extends Node
+
+@export var mob_scenes: Array[PackedScene]
+@onready var NemoContainer = $CanvasLayer/NemoContainer
+@onready var player = $Player
+
+
+func _ready() -> void:
+	NemoContainer.setMaxNemos(player.maxHealth)
+	NemoContainer.updateNemos(player.currHealth)
+	player.hit.connect(NemoContainer.updateNemos)
+
+func new_game():
+	$Player.start($StartPos.position)
+	$StartTimer.start()
+
+func _on_enemy_timer_timeout():
+	# Randomly choose between pufferfish and swordfish
+	var index = choose_random_enemy()
+	var mob_scene = mob_scenes[index]
+
+	# Instantiate the chosen enemy scene
+	var mob = mob_scene.instantiate()
+	if index == 1:
+		mob.add_to_group(\"Swordies\")
+	mob.add_to_group(\"enemies\")
+
+	# Choose a random location on Path2D.
+	var mob_spawn_location = $\"Path/Spawn enemies\"
+	mob_spawn_location.progress_ratio = randf()
+
+	# Set the mob's position to a random location.
+	mob.position = mob_spawn_location.position
+	
+	#Calculate the center of the screen
+	var screen_center = get_viewport().get_visible_rect().size / 2
+
+	#Calculate direction towards the center of the screen
+	var direction_vector = (screen_center - mob.position).normalized()
+	
+	#Set the mob's rotation to face the center of the screen
+	mob.rotation = direction_vector.angle()
+
+	# Choose the velocity for the mob.
+	var velocity = Vector2(mob.velocity, 0.0)
+	mob.linear_velocity = direction_vector * velocity.length()
+	
+	# Spawn the mob by adding it to the Main scene.
+	add_child(mob)
+
+func _on_start_timer_timeout() -> void:
+	$EnemyTimer.start()
+
+# Function to randomly choose between the pufferfish and swordfish
+func choose_random_enemy() -> int:
+	return randi() % mob_scenes.size()
+"
+
 [sub_resource type="Curve2D" id="Curve2D_tvcvj"]
 _data = {
 "points": PackedVector2Array(0, 0, 0, 0, 3, 0, 0, 0, 0, 0, 649, 1, 0, 0, 0, 0, 648, 647, 0, 0, 0, 0, 2, 644, 0, 0, 0, 0, 3, 0)
@@ -16,7 +75,7 @@ _data = {
 point_count = 5
 
 [node name="Main" type="Node2D"]
-script = ExtResource("1_eiv0s")
+script = SubResource("GDScript_pf7ik")
 mob_scenes = Array[PackedScene]([ExtResource("2_qteu8"), ExtResource("3_i4u0a"), ExtResource("4_m0alt")])
 
 [node name="Background" type="Sprite2D" parent="."]

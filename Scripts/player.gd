@@ -3,6 +3,7 @@ extends Area2D
 @export var maxHealth = 6
 @onready var currHealth: int = maxHealth
 @onready var flash_animation = $Sprite2D/AnimationPlayer
+@onready var hurt_sound = $HurtSound
 
 var screen_size
 
@@ -22,7 +23,9 @@ func _process(delta: float) -> void:
 func _on_body_entered(enemy: RigidBody2D) -> void:
 	currHealth-= enemy.damage
 	flash_animation.play("flash")
+	hurt_sound.play()
 	enemy.queue_free()
+	
 	
 	print(currHealth)
 	if currHealth <= 0:
