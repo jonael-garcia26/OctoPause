@@ -20,6 +20,7 @@ func _on_enemy_timer_timeout():
 
 	# Instantiate the chosen enemy scene
 	var mob = mob_scene.instantiate()
+	mob.add_to_group("enemies")
 
 	# Choose a random location on Path2D.
 	var mob_spawn_location = $"Path/Spawn enemies"
