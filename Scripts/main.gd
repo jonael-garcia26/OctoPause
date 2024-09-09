@@ -6,7 +6,6 @@ extends Node
 @onready var EnemyTimer = $EnemyTimer
 
 
-
 func _ready() -> void:
 	Global.Score = 0
 	NemoContainer.setMaxNemos(player.maxHealth)
