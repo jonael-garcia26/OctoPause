@@ -55,7 +55,8 @@ func _check_overlapping_bodies() -> void:
 	for body in bodies_in_area:
 		if body not in Current_bodies:
 			bodies_in_area.erase(body)
-			unpause_rigid_body(body)
+			if body != null:
+				unpause_rigid_body(body)
 
 
 func pause_rigid_body(body: RigidBody2D):

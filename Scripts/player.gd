@@ -22,14 +22,15 @@ func _process(delta: float) -> void:
 func _on_body_entered(enemy: RigidBody2D) -> void:
 	currHealth-= enemy.damage
 	flash_animation.play("flash")
+	enemy.queue_free()
+	
 	print(currHealth)
 	if currHealth <= 0:
-		currHealth = maxHealth
+		hide()
+		$Hitbox.set_deferred("disabled", true)
+		get_tree().change_scene_to_file("res://Scenes/GameOver.tscn")
 	
 	hit.emit(currHealth)
-	#hide()
-	#hit.emit()
-	#$Hitbox.set_deferred("disabled", true)
 
 func start(pos):
 	position = pos
