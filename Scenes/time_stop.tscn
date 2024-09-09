@@ -1,0 +1,15 @@
+[gd_scene load_steps=2 format=3 uid="uid://666pj4t2irbx"]
+
+[ext_resource type="Script" path="res://Scripts/time_stop.gd" id="1_q002f"]
+
+[node name="TimeStop" type="Area2D"]
+script = ExtResource("1_q002f")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+
+[node name="Polygon2D" type="Polygon2D" parent="."]
+color = Color(0, 1, 1, 0.498039)
+
+[node name="Cooldown" type="Timer" parent="."]
+wait_time = 0.25
+one_shot = true
