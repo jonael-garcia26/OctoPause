@@ -1,8 +1,9 @@
-[gd_scene load_steps=9 format=3 uid="uid://c2awl4pj3dnt6"]
+[gd_scene load_steps=10 format=3 uid="uid://c2awl4pj3dnt6"]
 
 [ext_resource type="Texture2D" uid="uid://ciav10522sh7w" path="res://Assets/Sprites/Pulpy.png" id="1_os784"]
 [ext_resource type="Script" path="res://Scripts/player.gd" id="1_racub"]
-[ext_resource type="Shader" path="res://Scripts/Player_damage.gdshader" id="2_wbdch"]
+[ext_resource type="Shader" path="res://Assets/Shaders/Player_damage.gdshader" id="2_wbdch"]
+[ext_resource type="AudioStream" uid="uid://74ketsfm0gui" path="res://Assets/audio/hurtsound.mp3" id="4_3kkqe"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_ex6ex"]
 shader = ExtResource("2_wbdch")
@@ -65,5 +66,9 @@ libraries = {
 [node name="Hitbox" type="CollisionShape2D" parent="."]
 visible = false
 shape = SubResource("CircleShape2D_0dtc3")
+
+[node name="HurtSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_3kkqe")
+volume_db = -8.0
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
