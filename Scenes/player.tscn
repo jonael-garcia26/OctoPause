@@ -10,9 +10,13 @@ radius = 22.0907
 script = ExtResource("1_racub")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
+rotation = 1.5708
 texture = ExtResource("1_os784")
 
 [node name="Hitbox" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_0dtc3")
+
+[node name="InkPoint" type="Area2D" parent="."]
+position = Vector2(24, 0)
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
