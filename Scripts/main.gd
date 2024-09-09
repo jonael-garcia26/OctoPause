@@ -8,10 +8,10 @@ extends Node
 
 
 func _ready() -> void:
+	Global.Score = 0
 	NemoContainer.setMaxNemos(player.maxHealth)
 	NemoContainer.updateNemos(player.currHealth)
 	player.hit.connect(NemoContainer.updateNemos)
-	
 
 func new_game():
 	$Player.start($StartPos.position)
