@@ -4,13 +4,14 @@ extends Node
 @onready var NemoContainer = $CanvasLayer/NemoContainer
 @onready var player = $Player
 @onready var EnemyTimer = $EnemyTimer
-
+@onready var labelFade_anim = $Background/Label/Fade
 
 func _ready() -> void:
 	Global.Score = 0
 	NemoContainer.setMaxNemos(player.maxHealth)
 	NemoContainer.updateNemos(player.currHealth)
 	player.hit.connect(NemoContainer.updateNemos)
+	new_game()
 
 func new_game():
 	$Player.start($StartPos.position)
@@ -57,6 +58,8 @@ func _on_enemy_timer_timeout():
 
 func _on_start_timer_timeout() -> void:
 	EnemyTimer.start()
+	labelFade_anim.play("fade_out")
+	print("hola")
 
 # Function to randomly choose between the pufferfish and swordfish
 func choose_random_enemy() -> int:

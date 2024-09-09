@@ -36,7 +36,7 @@ func _on_body_entered(enemy: RigidBody2D) -> void:
 	enemy.queue_free()
 	
 	
-	print(currHealth)
+	
 	if currHealth <= 0:
 		hide()
 		$Hitbox.set_deferred("disabled", true)
