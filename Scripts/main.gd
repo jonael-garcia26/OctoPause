@@ -1,10 +1,14 @@
 extends Node
 
 @export var mob_scenes: Array[PackedScene]
+@onready var NemoContainer = $CanvasLayer/NemoContainer
+@onready var player = $Player
 
 
 func _ready() -> void:
-	pass
+	NemoContainer.setMaxNemos(player.maxHealth)
+	NemoContainer.updateNemos(player.currHealth)
+	player.hit.connect(NemoContainer.updateNemos)
 
 func new_game():
 	$Player.start($StartPos.position)

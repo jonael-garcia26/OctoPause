@@ -1,6 +1,8 @@
 extends Area2D
 
-@export var health = 100
+@export var maxHealth = 6
+@onready var currHealth: int = maxHealth
+
 var screen_size
 
 signal hit
@@ -14,10 +16,16 @@ func _process(delta: float) -> void:
 	pass
 
 
-func _on_body_entered(body: Node2D) -> void:
-	hide()
-	hit.emit()
-	$Hitbox.set_deferred("disabled", true)
+func _on_body_entered(enemy: RigidBody2D) -> void:
+	currHealth-= enemy.damage
+	print(currHealth)
+	if currHealth <= 0:
+		currHealth = maxHealth
+	
+	hit.emit(currHealth)
+	#hide()
+	#hit.emit()
+	#$Hitbox.set_deferred("disabled", true)
 
 func start(pos):
 	position = pos
