@@ -54,6 +54,7 @@ grow_horizontal = 2
 grow_vertical = 2
 
 [node name="Start" type="Button" parent="VBoxContainer"]
+modulate = Color(0, 1, 1, 1)
 layout_mode = 2
 focus_neighbor_top = NodePath("../Quit")
 theme_override_fonts/font = ExtResource("3_if7dh")
@@ -62,6 +63,7 @@ text = "Start"
 script = SubResource("GDScript_jkrfo")
 
 [node name="Quit" type="Button" parent="VBoxContainer"]
+modulate = Color(0, 1, 1, 1)
 layout_mode = 2
 focus_neighbor_bottom = NodePath("../Start")
 theme_override_fonts/font = ExtResource("3_if7dh")

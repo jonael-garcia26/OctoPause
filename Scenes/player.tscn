@@ -74,4 +74,8 @@ volume_db = -8.0
 [node name="InkPoint" type="Area2D" parent="."]
 position = Vector2(24, 0)
 
+[node name="PointTimer" type="Timer" parent="."]
+autostart = true
+
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="timeout" from="PointTimer" to="." method="_on_point_timer_timeout"]

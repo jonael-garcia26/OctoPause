@@ -1,7 +1,9 @@
-[gd_scene load_steps=6 format=3 uid="uid://b3mhql1b038dc"]
+[gd_scene load_steps=8 format=3 uid="uid://b3mhql1b038dc"]
 
 [ext_resource type="Shader" path="res://Assets/Shaders/bgScroll.gdshader" id="1_07bwd"]
+[ext_resource type="Script" path="res://Scripts/game_over.gd" id="1_r5qaw"]
 [ext_resource type="Texture2D" uid="uid://dt2sklf6eyu73" path="res://Assets/Sprites/Start.png" id="2_xb5vq"]
+[ext_resource type="FontFile" uid="uid://b641ed2clbrdw" path="res://Assets/Fonts/Monocraft.ttf" id="4_xynan"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_h6wif"]
 shader = ExtResource("1_07bwd")
@@ -22,6 +24,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 4
+script = ExtResource("1_r5qaw")
 
 [node name="Background" type="TextureRect" parent="."]
 texture_repeat = 2
@@ -53,16 +56,29 @@ offset_bottom = 52.0
 grow_horizontal = 2
 grow_vertical = 2
 
+[node name="LabelScore" type="Label" parent="VBoxContainer"]
+modulate = Color(0, 1, 1, 1)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("4_xynan")
+theme_override_font_sizes/font_size = 30
+text = "S"
+horizontal_alignment = 1
+vertical_alignment = 1
+
 [node name="Retry" type="Button" parent="VBoxContainer"]
+modulate = Color(0, 1, 1, 1)
 layout_mode = 2
 focus_neighbor_top = NodePath("../Quit2")
+theme_override_fonts/font = ExtResource("4_xynan")
 theme_override_font_sizes/font_size = 30
 text = "Retry"
 script = SubResource("GDScript_jkrfo")
 
 [node name="Quit2" type="Button" parent="VBoxContainer"]
+modulate = Color(0, 1, 1, 1)
 layout_mode = 2
 focus_neighbor_bottom = NodePath("../Retry")
+theme_override_fonts/font = ExtResource("4_xynan")
 theme_override_font_sizes/font_size = 30
 text = "Quit"
 script = SubResource("GDScript_1wvsp")

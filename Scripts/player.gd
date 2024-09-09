@@ -5,6 +5,7 @@ extends Area2D
 @onready var flash_animation = $Sprite2D/AnimationPlayer
 @onready var hurt_sound = $HurtSound
 
+
 var screen_size
 var inkBullet = preload("res://Scenes/ink_bullet.tscn")
 var shootTimer = 0
@@ -69,3 +70,7 @@ func shoot_ink_bullet():
 	bulletInstance.position = $InkPoint.get_global_position()
 	bulletInstance.rotation_degrees = rotation_degrees
 	get_tree().get_root().add_child(bulletInstance)
+
+
+func _on_point_timer_timeout() -> void:
+	Global.Score += 1

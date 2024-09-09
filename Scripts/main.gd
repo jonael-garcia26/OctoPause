@@ -19,7 +19,7 @@ func new_game():
 func _on_enemy_timer_timeout():
 	#print(EnemyTimer.wait_time)
 	if EnemyTimer.wait_time > 0.5:
-		EnemyTimer.wait_time = round((EnemyTimer.wait_time*0.95)*100) / 100
+		EnemyTimer.wait_time = round((EnemyTimer.wait_time*0.90)*100) / 100
 		if EnemyTimer.wait_time <= 0.5:
 			EnemyTimer.wait_time = 0.5
 	# Randomly choose between pufferfish and swordfish
